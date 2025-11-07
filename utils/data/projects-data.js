@@ -12,6 +12,7 @@ export const projectsData = [
         role: 'Full Stack Developer',
         code: '',
         demo: '',
+        image:crefin,
     },
     {
         id: 2,
@@ -21,7 +22,7 @@ export const projectsData = [
         role: 'Full Stack Developer',
         code: '',
         demo: '',
-        image: travel,
+        image:crefin,
     },
     {
         id: 3,
@@ -31,7 +32,7 @@ export const projectsData = [
         code: '',
         role: 'Full Stack Developer',
         demo: '',
-        image: realEstate,
+        image:crefin,    
     },
     {
         id: 4,
@@ -41,6 +42,7 @@ export const projectsData = [
         role: 'Backend Developer',
         code: '',
         demo: '',
+        image:crefin,
     },
     {
         id: 5,
@@ -50,6 +52,7 @@ export const projectsData = [
         role: 'Backend Developer',
         code: '',
         demo: '',
+        image:crefin,
     },
     {
         id: 6,
@@ -59,6 +62,7 @@ export const projectsData = [
         role: 'Full Stack Developer',
         code: '',
         demo: '',
+        image:crefin,
     },
     {
         id: 7,
@@ -67,8 +71,10 @@ export const projectsData = [
         tools: ['NextJS', 'Laravel', 'Mern Stack', 'Wordpress', "API'S"],
         code: '',
         demo: '',
-        image: ayla,
+        image: crefin,
         role: 'Full Stack Developer',
+        image:crefin,
+
     },
 ];
 
