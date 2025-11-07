@@ -1,9 +1,16 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const GlowCard = ({ children, identifier }) => {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    if (typeof window === "undefined" || typeof document === "undefined") return;
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined' || !isClient) return;
 
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
     const CARDS = document.querySelectorAll(`.glow-card-${identifier}`);
@@ -60,13 +67,24 @@ const GlowCard = ({ children, identifier }) => {
 
     RESTYLE();
 
-    // Cleanup
     return () => {
       document.body.removeEventListener("pointermove", UPDATE);
     };
-  }, [identifier]);
+  }, [isClient, identifier]);
 
-  if (typeof window === "undefined") return null;
+  // Return placeholder during SSR
+  if (!isClient) {
+    return (
+      <div className={`glow-container-${identifier} glow-container`}>
+        <article
+          className={`glow-card glow-card-${identifier} h-fit cursor-pointer border border-[#2a2e5a] transition-all duration-300 relative bg-[#101123] text-gray-200 rounded-xl hover:border-transparent w-full`}
+        >
+          <div className="glows"></div>
+          {children}
+        </article>
+      </div>
+    );
+  }
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
