@@ -3,7 +3,6 @@ import { useEffect } from "react";
 
 const GlowCard = ({ children, identifier }) => {
   useEffect(() => {
-    // Check for browser environment first
     if (typeof window === "undefined" || typeof document === "undefined") return;
 
     const CONTAINER = document.querySelector(`.glow-container-${identifier}`);
@@ -46,7 +45,6 @@ const GlowCard = ({ children, identifier }) => {
           Math.PI;
 
         ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
-
         CARD.style.setProperty("--start", ANGLE + 90);
       }
     };
@@ -62,10 +60,13 @@ const GlowCard = ({ children, identifier }) => {
 
     RESTYLE();
 
+    // Cleanup
     return () => {
       document.body.removeEventListener("pointermove", UPDATE);
     };
   }, [identifier]);
+
+  if (typeof window === "undefined") return null;
 
   return (
     <div className={`glow-container-${identifier} glow-container`}>
