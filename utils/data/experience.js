@@ -13,8 +13,8 @@ export const experiences = [
   },
   {
     id: 3,
-    title: "Web Development Intern",
-    company: "NetSol Technologies",
+    title: "Software Development Freelance",
+    company: "Remote",
     duration: "(Nov 2024 - Present)"
   },
   {
